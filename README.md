@@ -12,9 +12,25 @@
 
 
 # Setup
+To start the client run the following commands:
 
-#prerequisites
+``` git clone https://github.com/Suha-AlHumaid/U02P01Frontend.git ```
 
+``` cd U02P01Frontend ```
+
+``` npm install ```
+
+``` npm start ```
+
+### Install required npm packages
+```npm install axios```
+
+
+
+# prerequisites
+* Basic knowledge of HTML, CSS, and JavaScript.
+* To get started you should know about React.js.
+* Basic understanding of how to use npm.
 
 # Inspiration
 Front-end design inspired from this powerpoint template
