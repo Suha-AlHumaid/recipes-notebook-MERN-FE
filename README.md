@@ -40,7 +40,7 @@ To start the client run the following commands:
 ```npm i axios```
 ```npm i react-router-dom```
 
-# prerequisites
+# Prerequisites
 * Basic knowledge of HTML, CSS, and JavaScript.
 * To get started you should know about React.js.
 * Basic understanding of how to use npm.
