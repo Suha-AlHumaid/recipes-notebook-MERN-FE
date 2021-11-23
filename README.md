@@ -22,10 +22,10 @@ To start the client run the following commands:
 
 ``` npm start ```
 
+
 ### Install required npm packages
-```npm install axios```
-
-
+```npm i axios```
+```npm i react-router-dom```
 
 # prerequisites
 * Basic knowledge of HTML, CSS, and JavaScript.
