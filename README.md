@@ -3,10 +3,17 @@
 
 
 #Table of contents
+* [Trello](#Trello)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Prerequisites](#prerequisites)
 * [Inspiration](#inspiration)
+
+
+# Trello
+Project plan:
+https://trello.com/b/Kpra7CZC/project-2
+
 
 # Technologies
 Project is created with:
