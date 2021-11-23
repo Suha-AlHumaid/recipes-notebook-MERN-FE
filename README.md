@@ -9,6 +9,12 @@
 * [Inspiration](#inspiration)
 
 # Technologies
+Project is created with:
+* React js
+* MongoDB
+* Node js
+* Express
+* CSS
 
 
 # Setup
