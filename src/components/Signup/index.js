@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
 
@@ -32,41 +32,55 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div id="signup">
       {user ? (
-        <p>
-          You are already signed up, go to <Link to="/Recipes">Recipes</Link>
-        </p>
+        navigate("/Recipes")
       ) : (
-        <div>
-          <h1>Signup</h1>
-          {message ? <div>{message}</div> : ""}
-          <div>
-            <input
-              type="text"
-              name="userName"
-              placeholder="Enter your name here"
-              required
-              onChange={(e) => setUserName(e.target.value)}
-            />
-            <br />
-            <input
-              type="text"
-              name="email"
-              placeholder="Enter your email here"
-              required
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <br />
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password here"
-              required
-              onChange={(e) => setPassword(e.target.value)}
+        <div className="form">
+          <div className="imgSingup">
+            <img
+              id="imgSingup"
+              src="https://static.parade.com/wp-content/uploads/2020/05/iStock-1226987291.jpg"
             />
           </div>
-          <input type="submit" value="Go" onClick={signup} />
+          <div className="yellow">
+            <form>
+              <h1 className="title">Register</h1>
+              <input
+                type="text"
+                name="userName"
+                placeholder="Name"
+                className="input"
+                required
+                onChange={(e) => setUserName(e.target.value)}
+              />
+              <br />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="input"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <br />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                className="input"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {message ? <p className="message"> {message}</p> : ""}
+              <input
+                type="submit"
+                className="btn"
+                value="Go"
+                onClick={signup}
+              />
+            </form>
+          </div>
         </div>
       )}
     </div>

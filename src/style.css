@@ -1,7 +1,12 @@
 body{
-    width: 100%;
+width: 100%;
 position: relative;
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+/* color: #f3f4f6; */
+}
+a{
+    color: #939394;
+    text-decoration: none;
 }

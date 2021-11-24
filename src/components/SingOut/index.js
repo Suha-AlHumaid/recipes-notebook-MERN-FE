@@ -11,10 +11,9 @@ const SingOut = () => {
   };
 
   return (
-    <div>
-      <h1> SingOut </h1>
+
       <button onClick={singOutFun}>Sign Out</button>
-    </div>
+
   );
 };
 

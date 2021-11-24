@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SingleRecipe from "../SingleRecipe";
+import SingOut from "../SingOut";
 import "./style.css";
 const Recipes = () => {
   const [user, setUser] = useState(null);
@@ -41,14 +42,15 @@ const Recipes = () => {
         </p>
       ) : (
         <div>
-          {recipes ? (
+           <SingOut />
+          {recipes.length ===0? (
             <div>
               {recipes.map((elem) => (
                 <SingleRecipe elem={elem} />
               ))}
             </div>
           ) : (
-            <h1>you do not have any recipie yet</h1>
+            <p>you do not have any recipe yet</p>
           )}
         </div>
       )}
