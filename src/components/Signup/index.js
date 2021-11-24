@@ -24,6 +24,7 @@ const Signup = () => {
     });
     console.log(res.data);
     if (res.data.message === "Login Successfuly") {
+      localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
       navigate("/Recipes");
     } else {
       setMessage(res.data.message);

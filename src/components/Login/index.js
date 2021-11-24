@@ -31,7 +31,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       {user ? (
         <h1>
           You are already logged in, go to <Link to="/Recipes">Recipes</Link>

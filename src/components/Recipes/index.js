@@ -35,10 +35,10 @@ const Recipes = () => {
   return (
     <div>
       {!user ? (
-        <h1>
-          You are not logeddin yet, so <Link to="/login">login</Link> or{" "}
-          <Link to="/signup">signup</Link>
-        </h1>
+        <p>
+          You have to <Link to="/Login">Login</Link> first, if you dont have an account {" "}
+          <Link to="/Signup">Signup</Link> now!
+        </p>
       ) : (
         <div>
           {recipes ? (

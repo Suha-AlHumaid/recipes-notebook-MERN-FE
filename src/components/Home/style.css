@@ -1,0 +1,56 @@
+.container {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #fdc100;
+  /* color: #1e3966; */
+  /* border-color: #f3f4f6; */
+  /* color: #feffff; */
+}
+
+.homeImg {
+  width: 80%;
+  height: 100vh;
+  object-fit: cover;
+}
+.ImgBox {
+  position: relative;
+}
+.loginBox {
+  position: absolute;
+  background-color: #2654778a;
+  width: 40%;
+  height: 50vh;
+  top: 25%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.homeh1 {
+  color: #f3f4f6;
+  font-size: 5rem;
+}
+#login{
+    
+}
+
+@media (max-width: 650px) {
+  .loginBox {
+    width: 75%;
+  }
+  .homeh1 {
+    font-size: 2.7rem;
+  }
+}
+
+@media (max-width: 999px) {
+
+    .loginBox{
+        width: 60%;
+        }
+}
+@media (min-width: 1000px) {
+}
