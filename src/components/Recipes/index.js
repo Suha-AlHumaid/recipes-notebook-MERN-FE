@@ -29,7 +29,7 @@ const Recipes = () => {
 
     if (userData) {
       const id = userData.user._id;
-      const res = await axios.get(`http://localhost:5000/yourRecipes/${id}`, {
+      const res = await axios.get(`https://recipe-note-book.herokuapp.com/yourRecipes/${id}`, {
         username: userData.username,
       });
       setRecipes(res.data.filter((elem) => elem.isDeleted != true));

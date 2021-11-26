@@ -16,18 +16,18 @@ const Login = () => {
   }, []);
 
   const login = async () => {
-    const res = await axios.post("http://localhost:5000/user/login", {
+    const res = await axios.post("https://recipe-note-book.herokuapp.com/user/login", {
       email: email,
       password: password,
     });
     console.log(res);
-    if (typeof res.data.user === "object") {
-      localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
-      navigate("/Recipes");
-    } else {
-      console.log(res.data.message);
-      setMessage(res.data.message);
-    }
+    // if (typeof res.data.user === "object") {
+    //   localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
+    //   navigate("/Recipes");
+    // } else {
+    //   console.log(res.data.message);
+    //   setMessage(res.data.message);
+    // }
   };
 
   return (

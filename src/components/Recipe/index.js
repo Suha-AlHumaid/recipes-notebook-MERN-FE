@@ -21,7 +21,7 @@ const Recipe = () => {
   }, []);
 
   const getRecipe = async () => {
-    const res = await axios.get(`http://localhost:5000/recipe/${id}`);
+    const res = await axios.get(`https://recipe-note-book.herokuapp.com/recipe/${id}`);
     // console.log(res.data);
     setRecipe(res.data);
 
@@ -37,7 +37,7 @@ const Recipe = () => {
   const deleteRecipe = async () => {
     // e.preventDefault();
     const res = await axios.delete(
-      `http://localhost:5000/recipe/${recipe._id}`
+      `https://recipe-note-book.herokuapp.com/recipe/${recipe._id}`
     );
     // setMessage(res.data);
     console.log(res.data);
