@@ -17,7 +17,7 @@ const SignOut = (props) => {
     <>
       <div className="logout">
         <BiLogOutCircle onClick={signOutFun} className="icon" id="signout" />
-        <p>Sign Out</p>
+        <p id="logout">logout</p>
       </div>
     </>
   );

@@ -20,7 +20,7 @@ const Signup = () => {
 
   const signup = async () => {
     // setMessage("Faild");
-    const res = await axios.post("http://localhost:5000/user/register", {
+    const res = await axios.post("https://recipe-note-book.herokuapp.com/user/register", {
       userName: userName,
       email: email,
       password: password,
