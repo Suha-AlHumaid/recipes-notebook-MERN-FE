@@ -1,0 +1,22 @@
+.editRecipe{
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 80px;
+}
+.editForm{
+    width: 50%;
+    margin-left: 30px;
+}
+.editImg{
+    width: 50%;
+    object-fit: cover;
+    right: 0;
+    min-height: 100vh;
+
+}
+.formEdit{
+    width: 90%;
+}

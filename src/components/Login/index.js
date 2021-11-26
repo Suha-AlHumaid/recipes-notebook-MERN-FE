@@ -33,10 +33,10 @@ const Login = () => {
   return (
     <div className="login">
       {user ? (
-   navigate("/Recipes")
+        navigate("/Recipes")
       ) : (
         <div className="form">
-        <form>
+          <form>
             <input
               type="email"
               name="email"
@@ -55,21 +55,16 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-          {message ?<p className="message"> {message}</p>: ""}
-          <input
-            type="submit"
-            value="Go"
-            className="btn"
-            onClick={login}
-          />
-        </form>
-                <div>
-                  <p>
-                  Not Register?
-                    <Link to="/Signup"> Create an Account! </Link>
-                  </p>
-                </div>
-                </div>
+            {message ? <p className="message"> {message}</p> : ""}
+            <input type="submit" value="Go" className="btn" onClick={login} />
+          </form>
+          <div>
+            <p>
+              Not Register?
+              <Link to="/Signup"> Create an Account! </Link>
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );

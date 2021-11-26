@@ -1,0 +1,58 @@
+
+.recipes{
+position: relative;
+display: flex;
+flex-direction: column;
+margin-top: 90px;
+}
+.main {
+    position: relative;
+    min-height: 77vh;
+}
+.mainRecipes{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 1.8rem 1.7rem;
+    grid-gap: 1.9rem;
+    align-items: stretch;
+    text-transform: uppercase;
+    /* text-transform: capitalize; */
+}
+
+.emptyRecipe{
+    left: 10vw;
+    width: 80%;
+   margin-top: 15%;
+   margin-left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    min-height: 60vh;
+}
+
+
+.add {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    z-index: 9999;
+    position: fixed;
+}
+#addIcon{
+    position: sticky;
+    padding: 10px;
+    margin: 5px;
+    background-color: #f1c50e;
+    color: #333333;
+    /* border-radius: 50%; */
+    z-index: 9999;
+}
+#addIcon:hover{
+    background-color: #f1c50e;
+}
+p{
+       text-transform: capitalize;
+}

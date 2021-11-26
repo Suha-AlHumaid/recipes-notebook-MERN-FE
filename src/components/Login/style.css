@@ -5,31 +5,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 70%; */
 }
 .input {
   outline: 0;
   z-index: 1;
   position: relative;
-  background: #00000052;
+  background: #00000017;
   border-radius: 0.6em;
   width: 100%;
   height: 60px;
   border: 0;
-  color: #f3f4f6;
+  color: #101a2e;
   font-size: 24px;
   margin-bottom: 10px;
+  padding-left: 10px;
 }
 .input:focus {
-  background: #00000052;
+  background: #00000017;
 }
 .btn {
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
-  border: 2px solid #fdc100;
+  border: 2px solid #f1c50e;
   border-radius: 0.6em;
-  color: #fdc100;
+  color: #f1c50e;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -44,19 +44,21 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
+.btn:hover{
+  color: #f3f4f6;
+  border: 2px solid #f1c50e;
+  background-color: #f1c50e;
+
+}
 form {
     display: flex;
     align-content: space-around;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+
 }
-.form{
-    width: 80%;
-    padding: auto;
-}
+
 .message{
-    color: #f3f4f6;
     font-size: 1.2rem;
 }
