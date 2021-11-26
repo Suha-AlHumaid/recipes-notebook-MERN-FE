@@ -31,20 +31,17 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       {user ? (
-        <h1>
-          You are already logged in, go to <Link to="/Recipes">Recipes</Link>
-        </h1>
+        navigate("/Recipes")
       ) : (
-        <div>
-          <h1>Login</h1>
-          {message ? <div>{message}</div> : ""}
-          <div >
+        <div className="form">
+          <form>
             <input
-              type="text"
+              type="email"
               name="email"
-              placeholder="Enter Your Email "
+              className="input"
+              placeholder="Email"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -52,20 +49,19 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="Enter Your Password"
+              className="input"
+              placeholder="Password"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <input
-            type="submit"
-            value="login"
-            onClick={login}
-          />
+
+            {message ? <p className="message"> {message}</p> : ""}
+            <input type="submit" value="Go" className="btn" onClick={login} />
+          </form>
           <div>
             <p>
-              If you don't have an account,{" "}
-              <Link to="/Signup">Register now!</Link>
+              Not Register?
+              <Link to="/Signup"> Create an Account! </Link>
             </p>
           </div>
         </div>
