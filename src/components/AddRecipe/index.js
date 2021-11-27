@@ -23,7 +23,7 @@ const AddRecipe = () => {
 
   const addRecipe = async () => {
     const publisher = user.user._id;
-    const res = await axios.post(`https://recipe-note-book.herokuapp.com/recipe`, {
+    const res = await axios.post(`http://localhost:5000/recipe`, {
       title: title,
       image: image,
       ingredients: ingredients,

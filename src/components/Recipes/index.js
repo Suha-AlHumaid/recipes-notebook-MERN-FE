@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import SingleRecipe from "../SingleRecipe";
 import { useNavigate } from "react-router-dom";
@@ -29,7 +28,7 @@ const Recipes = () => {
 
     if (userData) {
       const id = userData.user._id;
-      const res = await axios.get(`https://recipe-note-book.herokuapp.com/yourRecipes/${id}`, {
+      const res = await axios.get(`http://localhost:5000/yourRecipes/${id}`, {
         username: userData.username,
       });
       setRecipes(res.data.filter((elem) => elem.isDeleted != true));
