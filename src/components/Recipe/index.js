@@ -5,6 +5,7 @@ import Unreachable from "../Unreachable";
 import "./style.css";
 
 const Recipe = () => {
+  const BASE_URL ="https://recipe-note-book.herokuapp.com"
   const { id } = useParams();
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
@@ -21,7 +22,7 @@ const Recipe = () => {
   }, []);
 
   const getRecipe = async () => {
-    const res = await axios.get(`http://localhost:5000/recipe/${id}`);
+    const res = await axios.get(`${BASE_URL}/recipe/${id}`);
     // console.log(res.data);
     setRecipe(res.data);
 

@@ -4,7 +4,7 @@ import { useNavigate, useParams , Link} from "react-router-dom";
 import Unreachable from "../Unreachable";
 import "./style.css";
 
-const EditRecipe = () => {
+const EditRecipe = (BASE_URL) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [ingredients, setIngredients] = useState("");
@@ -28,15 +28,16 @@ const EditRecipe = () => {
 
   const getRecipe = async () => {
        
-    const res = await axios.get(`http://localhost:5000/recipe/${id}`);
+    const res = await axios.get(`${BASE_URL}/recipe/${id}`);
     // console.log(res.data);
     setRecipe(res.data);
    
   };
 
   const editRecipe = async () => {
+    
     const publisher = user.user._id;
-    const res = await axios.put(`http://localhost:5000/recipe/${id}`, {
+    const res = await axios.put(`${BASE_URL}/recipe/${id}`, {
       title: title,
       image: image,
       ingredients: ingredients,
@@ -57,6 +58,7 @@ const EditRecipe = () => {
           <div className="editRecipe">
           <div className="editForm">
         <form
+        method="POST"
          className="formEdit"
           onSubmit={() => {
             editRecipe();

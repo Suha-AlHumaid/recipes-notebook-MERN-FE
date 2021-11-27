@@ -6,8 +6,9 @@ import axios from "axios";
 import "./style.css";
 
 const Signup = () => {
-  const navigate = useNavigate();
 
+  const BASE_URL ="https://recipe-note-book.herokuapp.com"
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +22,7 @@ const Signup = () => {
 
   const signup = async () => {
     // setMessage("Faild");
-    const res = await axios.post("http://localhost:5000/user/register", {
+    const res = await axios.post(`${BASE_URL}/register`, {
       userName: userName,
       email: email,
       password: password,
@@ -53,7 +54,7 @@ const Signup = () => {
             />
           </div>
           <div className="yellow">
-            <form className="form2"  onSubmit={signup}>
+            <form className="form2" method="POST" onSubmit={signup}>
               <h1 className="title">Create an Account</h1>
               <div className="yellowLine"></div>
               <input

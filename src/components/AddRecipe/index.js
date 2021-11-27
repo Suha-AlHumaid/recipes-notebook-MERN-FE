@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
 import "./style.css";
 
-const AddRecipe = () => {
+const AddRecipe = (BASE_URL) => {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(
     "https://aqaarplus.com/assets/uploads/default.png"
@@ -22,8 +22,9 @@ const AddRecipe = () => {
   }, []);
 
   const addRecipe = async () => {
+  
     const publisher = user.user._id;
-    const res = await axios.post(`http://localhost:5000/recipe`, {
+    const res = await axios.post(`${BASE_URL}/recipe`, {
       title: title,
       image: image,
       ingredients: ingredients,
@@ -40,6 +41,7 @@ const AddRecipe = () => {
       <div className="addRecipe">
         <div className="addForm">
           <form
+          method="POST"
             className="formAdd"
             onSubmit={() => {
               addRecipe();
