@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams , Link} from "react-router-dom";
 import Unreachable from "../Unreachable";
+import Header from "../Header";
 import "./style.css";
 
-const EditRecipe = (BASE_URL) => {
+const EditRecipe = () => {
+  const BASE_URL ="https://recipe-note-book.herokuapp.com"
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [ingredients, setIngredients] = useState("");
@@ -27,15 +29,14 @@ const EditRecipe = (BASE_URL) => {
   // console.log(id);
 
   const getRecipe = async () => {
-       
     const res = await axios.get(`${BASE_URL}/recipe/${id}`);
-    // console.log(res.data);
     setRecipe(res.data);
-   
   };
 
-  const editRecipe = async () => {
-    
+  const editRecipe = async (e) => {
+    setMessage("")
+ 
+
     const publisher = user.user._id;
     const res = await axios.put(`${BASE_URL}/recipe/${id}`, {
       title: title,
@@ -45,25 +46,34 @@ const EditRecipe = (BASE_URL) => {
       extraNote: extraNote,
       publisher: publisher,
     });
+    console.log(res.data._id);
+if(res.data._id === id){
+  setRecipe(res.data);
+  setMessage("Updated Successfully");
+  // navigate("/Recipes");
+}
+else{
+  setMessage("Some thing wont wrong!");
+}
 
-    // console.log(res.data);
-    setRecipe(res.data);
-    setMessage(res.data.message);
   };
 
   return ( !user?(<Unreachable />):(
   <div>
    {recipe && (
       <div>
+        <Header/>
           <div className="editRecipe">
           <div className="editForm">
         <form
-        method="POST"
+    
          className="formEdit"
-          onSubmit={() => {
+          onSubmit={(e) => {
+            e.preventDefault()
             editRecipe();
-            navigate("/Recipes");
+           
           }}
+          // method="POST"
         >
           <h1> Edit Your Recipe </h1>
           <div className="yellowLine"></div>
@@ -110,6 +120,7 @@ const EditRecipe = (BASE_URL) => {
             placeholder="Extra Note"
             onChange={(e) => setExtraNote(e.target.value)}
           />
+          {message ? <p className="message"> {message}</p> : ""}
           <div className="deleRecipe">
          
           <input type="submit" value="Save" className="btn" />

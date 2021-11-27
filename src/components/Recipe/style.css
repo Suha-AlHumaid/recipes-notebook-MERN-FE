@@ -58,6 +58,16 @@
   position: relative;
   bottom: 0;
 }
+.right{
+display: flex;
+justify-content: flex-end;
+width: 100%;
+}
 #note{
   width: 100%;
+}
+.title{
+display: flex;
+justify-content: space-between;
+align-items: center;
 }

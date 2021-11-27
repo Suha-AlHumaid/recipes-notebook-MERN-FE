@@ -7,11 +7,10 @@ import Unreachable from "../Unreachable";
 import Header from "../Header";
 import "./style.css";
 const Recipes = () => {
-  const BASE_URL ="https://recipe-note-book.herokuapp.com"
+  const BASE_URL = "https://recipe-note-book.herokuapp.com";
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [recipes, setRecipes] = useState([]);
-
 
   useEffect(() => {
     const userStorage = localStorage.getItem("user");
@@ -39,45 +38,43 @@ const Recipes = () => {
   return (
     <div className="recipes">
       {!user ? (
-<Unreachable/>
+        <Unreachable />
       ) : (
         <>
-         <Header />
-        <div className="main">
-           
-          <div className="add">
-            <IoMdAdd
-              className="icon"
-              id="addIcon"
-              onClick={() => {
-                navigate("/AddRecipe");
-              }}
-            />
-        
+          <Header />
+          <div className="main">
+            <div className="add">
+              <IoMdAdd
+                className="icon"
+                id="addIcon"
+                onClick={() => {
+                  navigate("/AddRecipe");
+                }}
+              />
+            </div>
+            {recipes.length !== 0 ? (
+              <div className="mainRecipes">
+                {recipes.map((elem) => (
+                  <SingleRecipe elem={elem} getRecipes={getRecipes} />
+                ))}
+              </div>
+            ) : (
+              <div className="emptyRecipe">
+                <p>
+                  You do not have any recipes yet .. To add new one click on
+                </p>
+                <IoMdAdd
+                  className="icon"
+                  id="addIcon"
+                  onClick={() => {
+                    navigate("/AddRecipe");
+                  }}
+                />
+              </div>
+            )}
           </div>
-          {recipes.length !== 0 ? (
-            <div className="mainRecipes">
-              {recipes.map((elem) => (
-                <SingleRecipe elem={elem} getRecipes={getRecipes} />
-              ))}
-            </div>
-          ) : (
-            <div className="emptyRecipe">
-             <p>You do not have any recipes yet .. To add new one click on</p><IoMdAdd
-              className="icon"
-              id="addIcon"
-              onClick={() => {
-                navigate("/AddRecipe");
-              }} 
-            /> 
-            </div>
-          )}
-
- 
-        </div>
         </>
       )}
-
     </div>
   );
 };
