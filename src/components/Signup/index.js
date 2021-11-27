@@ -6,8 +6,9 @@ import axios from "axios";
 import "./style.css";
 
 const Signup = () => {
-  const navigate = useNavigate();
 
+  const BASE_URL ="https://recipe-note-book.herokuapp.com"
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,20 +20,29 @@ const Signup = () => {
     setUser(JSON.parse(userStorage));
   }, []);
 
-  const signup = async () => {
+  const signup = async (e) => {
+    e.preventDefault()
     // setMessage("Faild");
-    const res = await axios.post("http://localhost:5000/user/register", {
-      userName: userName,
-      email: email,
-      password: password,
-    });
-    if (res.data.message === "Login Successfuly") {
-      localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
-      navigate("/Recipes");
-    } else {
-      setMessage(res.data.message);
-      setMessage("Faild");
-    }
+    console.log(userName,email , password);
+    try {
+      const res = await axios.post(`${BASE_URL}/user/register`, {
+        userName: userName,
+        email: email,
+        password: password
+      })
+      console.log(res.data);
+      if (typeof res.data.user === "object") {
+        localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
+        navigate("/Recipes");
+      } 
+        setMessage(res.data.message);
+        setMessage("Faild");
+  } catch (err) {
+      // Handle Error Here
+      console.error(err);
+  }
+
+  
       
     
   };
@@ -53,7 +63,7 @@ const Signup = () => {
             />
           </div>
           <div className="yellow">
-            <form className="form2"  onSubmit={signup}>
+            <form className="form2" onSubmit={signup} method="POST">
               <h1 className="title">Create an Account</h1>
               <div className="yellowLine"></div>
               <input
@@ -92,16 +102,9 @@ const Signup = () => {
                
               />
                 {message? <p className="message"> {message}</p> : ""}
-              {/* <MdOutlineKeyboardBackspace
-                className="backIcon"
-                onClick={() => {
-                  navigate("/");
-                }}/> */}
               </div>
               <div>
-         
             <p>
-           
               Have an Account?
               <Link to="/"> Back to Login! </Link>
             </p>

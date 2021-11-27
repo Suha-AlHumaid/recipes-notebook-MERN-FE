@@ -5,21 +5,26 @@ import { CgProfile } from "react-icons/cg";
 import "./style.css"
 const Header = () => {
 const [off,setoff]=useState(false)
-let onn =false
+
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     useEffect(() => {
-      const userStorage = localStorage.getItem("user");
-      setUser(JSON.parse(userStorage));
+      getUser();
+ 
       // headerOn ()
+      // eslint-disable-next-line
     }, [off]);
-
+const getUser =()=>{
+  const userStorage = localStorage.getItem("user");
+  setUser(JSON.parse(userStorage));
+  setoff(false)
+}
 const header =()=>{
   setoff(true)
 }
 
   return (<>
-    {user ? (<div>{off?(""):( <div>
+    {user ? ( <div>
     <div className="headerContainer">
     <div className="header">
       <SingOut header ={header}/>
@@ -34,10 +39,7 @@ const header =()=>{
       </div>
       </div>
       </div>
-    </div>)}
-
-    </div>
-    )
+    </div>)
 :""}
 </>
   );
