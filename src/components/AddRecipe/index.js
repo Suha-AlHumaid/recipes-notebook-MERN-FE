@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
+import Header from "../Header";
 import "./style.css";
 
-const AddRecipe = (BASE_URL) => {
+const AddRecipe = () => {
+  const BASE_URL = "https://recipe-note-book.herokuapp.com";
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(
     "https://aqaarplus.com/assets/uploads/default.png"
@@ -22,7 +24,6 @@ const AddRecipe = (BASE_URL) => {
   }, []);
 
   const addRecipe = async () => {
-  
     const publisher = user.user._id;
     const res = await axios.post(`${BASE_URL}/recipe`, {
       title: title,
@@ -31,17 +32,25 @@ const AddRecipe = (BASE_URL) => {
       directions: directions,
       extraNote: extraNote,
       publisher: publisher,
-    });
-    navigate("/Recipes");
+    }); 
+
     setMessage(res.data.message);
+    if (res.status == 200){
+      navigate("/Recipes");
+     
+    } else {
+      setMessage("sorry, something wrong");
+    }
+
   };
 
   return user ? (
     <div>
+      <Header/>
       <div className="addRecipe">
         <div className="addForm">
           <form
-          method="POST"
+            method="POST"
             className="formAdd"
             onSubmit={() => {
               addRecipe();
@@ -55,15 +64,11 @@ const AddRecipe = (BASE_URL) => {
               name="title"
               className="input"
               rows="1"
-          
               placeholder="Title"
               required
               onChange={(e) => setTitle(e.target.value)}
             />
-
-     
             <textarea
-            
               type="text"
               name="ingredients"
               className="input"
@@ -72,8 +77,6 @@ const AddRecipe = (BASE_URL) => {
               required
               onChange={(e) => setIngredients(e.target.value)}
             />
-          
-    
             <br />
             <textarea
               type="text"
@@ -105,12 +108,14 @@ const AddRecipe = (BASE_URL) => {
                   : setImage("https://aqaarplus.com/assets/uploads/default.png")
               }
             />
-
-            <input type="submit" value="Save" className="btn" />{" "}
-            <div>
-              <p>
-                <Link to="/Recipes"> Back to Recipes </Link>
+            {message ? <p className="message"> {message}</p> : ""}
+  
+            <div className="deleRecipe">
+            <p>
+                <Link to="/Recipes"> Cancel </Link>
               </p>
+            <input type="submit" value="Save" className="btn" />{" "}
+
             </div>
           </form>
         </div>

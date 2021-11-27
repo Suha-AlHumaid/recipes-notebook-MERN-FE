@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { AiOutlineEdit } from "react-icons/ai";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
+import Header from "../Header";
+import {IoIosKeypad} from "react-icons/io"
 import "./style.css";
 
 const Recipe = () => {
@@ -35,29 +38,46 @@ const Recipe = () => {
     // setRecipe(res.data)
     // }
   };
-  const deleteRecipe = async () => {
-    // e.preventDefault();
+  const deleteRecipe = async (e) => {
+    setMessage("")
+    e.preventDefault();
     const res = await axios.delete(
       `http://localhost:5000/recipe/${recipe._id}`
     );
     // setMessage(res.data);
-    console.log(res.data);
+    // console.log(res.data);
 
     if (typeof res.data === "object") {
       navigate("/Recipes");
+    }
+    else{
+      setMessage("Delete is Faild")
     }
   };
   return (
     <div className="recipeX">
       {user ? (
         <>
+        <Header/>
           {recipe && (
             <div className="recipeP">
               <div className="recipeXX">
                 <div className="recipeNote">
                   <div id="note">
+                    <div className="title">
                     <h1 id="title"> {recipe.title} </h1>
-
+                    <div>
+                    <AiOutlineEdit 
+                     className="icon"
+                     onClick={(e)=>{
+                       e.preventDefault()
+                       navigate(`/EditRecipe/${recipe._id}`)}}
+                   />
+                   <IoIosKeypad      className="icon"
+                     onClick={(e)=>{
+                       e.preventDefault()
+                       navigate("/Recipes")}}/></div>
+</div>
                     <div className="yellowLine"></div>
                     <br />
                     <div>
@@ -84,8 +104,8 @@ const Recipe = () => {
                       ""
                     )}
                   </div>
-                  <p>{message ? message : ""}</p>
-                  <div className="deleRecipe">
+                  {message ? <p className="message"> {message}</p> : ""}
+                  <div className="right">
                  
                     <input
                       type="submit"
@@ -93,9 +113,10 @@ const Recipe = () => {
                       className="btn"
                       onClick={deleteRecipe}
                     />
-                    <p>
+
+                    {/* <p>
                       <Link to="/Recipes"> Back to Recipes </Link>
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>

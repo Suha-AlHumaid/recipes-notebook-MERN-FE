@@ -26,7 +26,7 @@ const Login = () => {
     console.log(res);
     if (typeof res.data.user === "object") {
       localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
-      navigate("/Recipes");
+  
     } 
       console.log(res.data.message);
       setMessage(res.data.message);
