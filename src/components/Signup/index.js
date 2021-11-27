@@ -1,3 +1,4 @@
+//http://localhost:5000
 import React, { useState, useEffect } from "react";
 import { useNavigate , Link } from "react-router-dom";
 
@@ -20,7 +21,7 @@ const Signup = () => {
 
   const signup = async () => {
     // setMessage("Faild");
-    const res = await axios.post("https://recipe-note-book.herokuapp.com/user/register", {
+    const res = await axios.post("http://localhost:5000/user/register", {
       userName: userName,
       email: email,
       password: password,
@@ -115,42 +116,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-// // http://localhost:5000/user/signout
-// const Login = () => {
-
-//   const singUpFun = async (e) => {
-//     e.preventDefault();
-//     try {
-//       let userName = e.target.userName.value;
-//       let email = e.target.email.value;
-//       let password = e.target.password.value;
-//       const res = await axios.post(`http://localhost:5000/user/register`, {
-//         userName: userName,
-//         email: email,
-//         password: password,
-//       });
-//       if (res.data.user) {
-//         console.log(res.data.message,"yes");
-//       } else {
-//         console.log(res.data.message);
-//       }
-//     } catch (error) {
-//       console.log("login error", error.message);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <form onSubmit={singUpFun}>
-//         <input type="text" name="userName" placeholder="User Name" />
-//         <input type="text" name="email" placeholder="email" />
-//         <input type="password" name="password" placeholder="password" />
-//         <button>singup</button>
-//       </form>
-
-//     </div>
-//   );
-// };
-
-// export default Login;

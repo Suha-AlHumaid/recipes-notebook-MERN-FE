@@ -21,7 +21,7 @@ const Profile = () => {
 const updateProfile =async()=>{
   console.log("updateProfile");
   console.log( userName, email,password);
-  const res = await axios.put(`https://recipe-note-book.herokuapp.com/user/updateUser/${user.user._id}`,{
+  const res = await axios.put(`http://localhost:5000/user/updateUser/${user.user._id}`,{
     userName:userName, email:email, password:password
   });
   console.log(res.data);
