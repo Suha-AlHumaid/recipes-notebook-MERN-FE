@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
 import "./style.css"
 import axios from "axios";
-
+import Header from "../Header";
 const Profile = () => {
   const BASE_URL ="https://recipe-note-book.herokuapp.com"
   const [userName, setUserName] = useState("");
@@ -39,6 +39,8 @@ const updateProfile =async (e)=>{
   return (
     <div className="profilec">
       {user ? (
+        <>
+        <Header/>
         <div className="userP">
             <img src="https://media.istockphoto.com/photos/young-charming-pretty-woman-is-smiling-while-smelling-the-aroma-of-picture-id944872822?k=20&m=944872822&s=612x612&w=0&h=wRFVEc_MoKAYce6UtfLpxgF8TH1uy8XJo_baNzlVKoU="  className="profileImg"/>
        
@@ -50,8 +52,8 @@ const updateProfile =async (e)=>{
                 type="text"
                 name="userName"
                 placeholder="Name"
-                className="input"
-                id="input"
+                className="input size"
+                
                 defaultValue={user.user.userName}
                 onChange={(e) => setUserName(e.target.value)}
               />
@@ -60,8 +62,8 @@ const updateProfile =async (e)=>{
                 type="email"
                 name="email"
                 placeholder="Email"
-                className="input"
-                id="input"
+                className="input size"
+                
                 defaultValue={user.user.email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -70,8 +72,8 @@ const updateProfile =async (e)=>{
                 type="password"
                 name="password"
                 placeholder="Password"
-                className="input"
-                id="input"
+                className="input size"
+              
             defaultValue={user.user.password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -93,6 +95,7 @@ const updateProfile =async (e)=>{
             </form>
         </div>
        </div>
+       </>
       ) : (
 <Unreachable/>
       )}

@@ -4,7 +4,7 @@ import SingleRecipe from "../SingleRecipe";
 import { useNavigate } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
 import Unreachable from "../Unreachable";
-
+import Header from "../Header";
 import "./style.css";
 const Recipes = () => {
   const BASE_URL ="https://recipe-note-book.herokuapp.com"
@@ -41,7 +41,10 @@ const Recipes = () => {
       {!user ? (
 <Unreachable/>
       ) : (
+        <>
+         <Header />
         <div className="main">
+           
           <div className="add">
             <IoMdAdd
               className="icon"
@@ -72,7 +75,7 @@ const Recipes = () => {
 
  
         </div>
-        
+        </>
       )}
 
     </div>
