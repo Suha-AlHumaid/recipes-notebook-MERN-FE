@@ -41,6 +41,10 @@
   padding-left: 5px;
 }
 @media (max-width: 650px) {
+  .prfileForm {
+    width: auto;
+    margin: 2px;
+  }
 }
 
 @media (max-width: 999px) {

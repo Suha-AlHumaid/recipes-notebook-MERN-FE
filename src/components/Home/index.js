@@ -18,9 +18,9 @@ const Home = () => {
         navigate("/Recipes")
       ) : (
         <div className="log">
-          <div className="left">
+          <div className="leftHome">
             <div>
-              <h1>My Recipe's Book</h1>
+              <h1>Chef's NoteBook</h1>
             </div>
             <div className="yellowLine"></div>
             <div>

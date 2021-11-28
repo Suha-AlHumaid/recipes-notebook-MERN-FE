@@ -7,7 +7,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    min-height: 62vh;
+    min-height: 50vh;
 }
 @media (max-width: 650px) {
 }

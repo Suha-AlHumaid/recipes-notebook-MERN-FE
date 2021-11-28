@@ -43,7 +43,7 @@ const AddRecipe = () => {
     setMessage(res.data.message);
     // if (res.data.message === "success") {
     //   setMessage(res.data.message);
-    //   // navigate("/Recipes");
+    //   navigate("/Recipes");
     // } else {
     //   setMessage("sorry, something wrong");
     // }
@@ -110,7 +110,7 @@ const AddRecipe = () => {
             <textarea
               type="text"
               name="ingredients"
-              className="input"
+              // className="input"
               rows="5"
               placeholder="Ingredients"
               required
@@ -120,7 +120,7 @@ const AddRecipe = () => {
             <textarea
               type="text"
               name="Directions"
-              className="input"
+              // className="input"
               rows="5"
               placeholder="Directions"
               required
@@ -130,7 +130,7 @@ const AddRecipe = () => {
             <textarea
               type="text"
               name="extraNote"
-              className="input"
+              // className="input"
               rows="5"
               placeholder="Extra Note"
               onChange={(e) => setExtraNote(e.target.value)}

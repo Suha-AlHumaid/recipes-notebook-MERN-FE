@@ -19,6 +19,8 @@ p {
   word-wrap: break-word;
   text-align: center;
   padding-bottom: 5px;
+  font-size: 1.5rem;
+  font-family: 'Kaushan Script', cursive;
 }
 .name {
   display: flex;

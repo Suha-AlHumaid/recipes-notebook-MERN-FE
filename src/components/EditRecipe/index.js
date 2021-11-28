@@ -129,6 +129,8 @@ const EditRecipe = () => {
         
                     </div>
                 <div className="yellowLine"></div>
+                <div className="leftEdit">
+                <label for="title">Title</label>
                 <input
                   type="text"
                   name="title"
@@ -152,32 +154,42 @@ const EditRecipe = () => {
                         )
                   }
                 /> */}
+                <label for="ingredients">Ingredients</label>
                 <textarea
+                id="ingredients"
                   type="text"
                   name="ingredients"
-                  className="input"
+                  rows="6"
+                  // className="input"
                   defaultValue={recipe.ingredients}
                   placeholder="Ingredients"
                   onChange={(e) => setIngredients(e.target.value)}
                 />
                 <br />
+                <label for="Directions">Directions</label>
                 <textarea
                   type="text"
+                  id="Directions"
                   name="Directions"
-                  className="input"
+                  rows="6"
+                  // className="input"
                   defaultValue={recipe.directions}
                   placeholder="Directions"
                   onChange={(e) => setDirections(e.target.value)}
                 />
                 <br />
+                <label for="extraNote">Extra Note</label>
                 <textarea
                   type="text"
+                  id="extraNote"
                   name="extraNote"
-                  className="input"
+                  rows="3"
+                  // className="input"
                   defaultValue={recipe.extraNote}
-                  placeholder="Extra Note"
+                  placeholder="Type here..."
                   onChange={(e) => setExtraNote(e.target.value)}
                 />
+                </div>
                             <div className="upload">
               <input type="file" onChange={handleChange} />
              <div className="prograss">

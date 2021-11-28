@@ -10,9 +10,10 @@ p {
   flex-direction: row;
   align-items: center;
   padding-left: 40px;
+  font-size: 1.2rem;
 }
 #logout {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 @media (max-width: 650px) {
 }

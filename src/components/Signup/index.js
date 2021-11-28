@@ -52,7 +52,7 @@ const Signup = () => {
           </div>
           <div className="yellow">
             <form className="form2" onSubmit={signup} method="POST">
-              <h1 className="title">Create an Account</h1>
+              <h1 className="title">Create yours now!</h1>
               <div className="yellowLine"></div>
               <input
                 type="text"

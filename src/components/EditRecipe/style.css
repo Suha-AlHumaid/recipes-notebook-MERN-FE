@@ -1,3 +1,24 @@
+.leftEdit {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+textarea{
+  outline: 0;
+    z-index: 1;
+    position: relative;
+    background: #00000017;
+    border-radius: 0.6em;
+    width: 100%;
+    /* height: 60px; */
+    border: 0;
+    color: #101a2e;
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
 .editRecipe {
   width: 100%;
   min-height: 80vh;
@@ -66,6 +87,9 @@ input[type=file]::file-selector-button:hover {
 }
 .formEdit {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .center{
   display: flex;
