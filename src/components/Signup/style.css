@@ -141,6 +141,7 @@ form {
 }
 #imgSingup {
   height: 100vh;
+  width: 50%;
   position: absolute;
   object-fit: cover;
   right: 0;

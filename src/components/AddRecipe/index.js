@@ -30,6 +30,7 @@ const AddRecipe = () => {
   }, []);
 
   const addRecipe = async () => {
+    // e.preventDefault();
     const publisher = user.user._id;
     const res = await axios.post(`${BASE_URL}/recipe`, {
       title: title,
@@ -39,13 +40,13 @@ const AddRecipe = () => {
       extraNote: extraNote,
       publisher: publisher,
     });
-
-    if (res.data.message === "success") {
-      setMessage(res.data.message);
-      navigate("/Recipes");
-    } else {
-      setMessage("sorry, something wrong");
-    }
+    setMessage(res.data.message);
+    // if (res.data.message === "success") {
+    //   setMessage(res.data.message);
+    //   // navigate("/Recipes");
+    // } else {
+    //   setMessage("sorry, something wrong");
+    // }
   };
 
   const handleChange = (e) => {
@@ -79,7 +80,7 @@ const AddRecipe = () => {
     );
   };
 
-  console.log("image: ", image1);
+
 
   return user ? (
     <div>
