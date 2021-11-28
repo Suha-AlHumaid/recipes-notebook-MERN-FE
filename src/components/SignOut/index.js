@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { BiLogOutCircle } from "react-icons/bi";
 import "./style.css";
+
 const SignOut = (props) => {
   const navigate = useNavigate();
 
@@ -10,7 +11,6 @@ const SignOut = (props) => {
     localStorage.removeItem("user");
     props.header();
     navigate("/");
-
   };
 
   return (

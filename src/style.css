@@ -1,38 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Red+Hat+Mono:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Red+Hat+Mono:wght@500&display=swap");
 * {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-body{
-width: 100%;
-position: relative;
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-/* font-family: 'Open Sans', sans-serif; */
-/* color: #f3f4f6; */
+body {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-a{
-    font-weight: 800;
-    color: #939394;
-    text-decoration: none;
-    border-bottom: 2px solid #f1c50e; 
+a {
+  font-weight: 800;
+  color: #939394;
+  text-decoration: none;
+  border-bottom: 2px solid #f1c50e;
 }
 
-.icon{
-font-size: 2rem;
-cursor: pointer;
+.icon {
+  font-size: 2rem;
+  cursor: pointer;
 }
 span {
-color: #f1c50e;
-
+  color: #f1c50e;
 }
-h1{
-    
-    font-weight: 700;
-    font-size: 2.25rem;
-    line-height: 1;
-    word-wrap: break-word;
-    text-align: center;
-   
-  }
-  
+h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1;
+  word-wrap: break-word;
+  text-align: center;
+}
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
+}
+

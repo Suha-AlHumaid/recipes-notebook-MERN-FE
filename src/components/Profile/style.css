@@ -7,34 +7,43 @@
 }
 .userP {
   background-color: #f1c50e;
-    position: relative;
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-top: 80px;
-
 }
 .userProfile {
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin: 0 60px;
   background-color: #f1c50e;
   width: 50%;
 }
-.prfileForm{
+.prfileForm {
   width: 80%;
   margin: 2rem;
   padding: 0 1.2rem;
   border: 1rem solid white;
   background-color: white;
 }
-.size{
+.size {
   width: 70%;
 }
 .profileImg {
   width: 40%;
   height: 90vh;
   object-fit: cover;
+}
+.space {
+  padding-left: 5px;
+}
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
 }

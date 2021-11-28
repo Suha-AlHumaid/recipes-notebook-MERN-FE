@@ -4,7 +4,8 @@ const Footer = () => {
   return (
     <div className="footer">
       <p id="footer">
-        The Secret Ingredient is Always <span> LOVE</span> &copy; <a href="https://github.com/Suha-AlHumaid">Suha AL-Humaid</a>
+        The Secret Ingredient is Always <span> LOVE</span> &copy;{" "}
+        <a href="https://github.com/Suha-AlHumaid">Suha AL-Humaid</a>
       </p>
     </div>
   );

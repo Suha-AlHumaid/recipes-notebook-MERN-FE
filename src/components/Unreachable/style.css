@@ -9,3 +9,10 @@
     align-items: baseline;
     min-height: 62vh;
 }
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
+}

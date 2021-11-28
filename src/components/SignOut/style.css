@@ -1,16 +1,23 @@
-#signout{
-    /* color: rgb(134, 11, 36); */
+#signout {
+  /* color: rgb(134, 11, 36); */
 }
-p{
-    text-align: left;
-    margin: 5px;
+p {
+  text-align: left;
+  margin: 5px;
 }
-.logout{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 40px;
+.logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 40px;
 }
-#logout{
-    font-size: 1rem;
+#logout {
+  font-size: 1rem;
+}
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
 }
