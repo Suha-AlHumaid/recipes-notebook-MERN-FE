@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { IoIosKeypad } from "react-icons/io";
 import { AiOutlineEdit } from "react-icons/ai";
-import { useNavigate, useParams, Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
 import Header from "../Header";
-import {IoIosKeypad} from "react-icons/io"
 import "./style.css";
 
 const Recipe = () => {
-  const BASE_URL ="https://recipe-note-book.herokuapp.com"
+  const BASE_URL = "https://recipe-note-book.herokuapp.com";
   const { id } = useParams();
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
@@ -22,62 +22,58 @@ const Recipe = () => {
 
   useEffect(() => {
     getRecipe();
+     // eslint-disable-next-line
   }, []);
 
   const getRecipe = async () => {
     const res = await axios.get(`${BASE_URL}/recipe/${id}`);
-    // console.log(res.data);
     setRecipe(res.data);
-
-    // const userStorage = localStorage.getItem("user");
-    // const userData = JSON.parse(userStorage);
-
-    // if (userData) {
-    // const res = await axios.get(`http://localhost:5000/Recipe/${id}`);
-    // console.log(res);
-    // setRecipe(res.data)
-    // }
   };
+
   const deleteRecipe = async (e) => {
-    setMessage("")
+    setMessage("");
+
     e.preventDefault();
     const res = await axios.delete(
-      `http://localhost:5000/recipe/${recipe._id}`
+      `${BASE_URL}/recipe/${recipe._id}`
     );
-    // setMessage(res.data);
-    // console.log(res.data);
-
     if (typeof res.data === "object") {
+      setMessage("Delete");
       navigate("/Recipes");
-    }
-    else{
-      setMessage("Delete is Faild")
+    } else {
+      setMessage("Delete is Faild");
     }
   };
+
   return (
     <div className="recipeX">
       {user ? (
         <>
-        <Header/>
+          <Header />
           {recipe && (
             <div className="recipeP">
               <div className="recipeXX">
                 <div className="recipeNote">
                   <div id="note">
                     <div className="title">
-                    <h1 id="title"> {recipe.title} </h1>
-                    <div>
-                    <AiOutlineEdit 
-                     className="icon"
-                     onClick={(e)=>{
-                       e.preventDefault()
-                       navigate(`/EditRecipe/${recipe._id}`)}}
-                   />
-                   <IoIosKeypad      className="icon"
-                     onClick={(e)=>{
-                       e.preventDefault()
-                       navigate("/Recipes")}}/></div>
-</div>
+                      <h1 id="title"> {recipe.title} </h1>
+                      <div>
+                        <AiOutlineEdit
+                          className="icon"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate(`/EditRecipe/${recipe._id}`);
+                          }}
+                        />
+                        <IoIosKeypad
+                          className="icon"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate("/Recipes");
+                          }}
+                        />
+                      </div>
+                    </div>
                     <div className="yellowLine"></div>
                     <br />
                     <div>
@@ -106,21 +102,16 @@ const Recipe = () => {
                   </div>
                   {message ? <p className="message"> {message}</p> : ""}
                   <div className="right">
-                 
                     <input
                       type="submit"
                       value="Delete"
                       className="btn"
                       onClick={deleteRecipe}
                     />
-
-                    {/* <p>
-                      <Link to="/Recipes"> Back to Recipes </Link>
-                    </p> */}
                   </div>
                 </div>
               </div>
-              <img src={recipe.image} className="recipeImgX" />
+              <img alt="recipe img"src={recipe.image} className="recipeImgX" />
             </div>
           )}
         </>

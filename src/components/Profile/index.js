@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import {useNavigate, Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
+import { IoIosKeypad } from "react-icons/io";
 import "./style.css";
 import axios from "axios";
 import Header from "../Header";
@@ -12,26 +13,29 @@ const Profile = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [user, setUser] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const userStorage = localStorage.getItem("user");
     setUser(JSON.parse(userStorage));
   }, []);
 
   const updateProfile = async (e) => {
-    setMessage("")
-    e.preventDefault();  
+    setMessage("");
+    e.preventDefault();
 
-    const res = await axios.put(`${BASE_URL}/user/updateUser/${user.user._id}`, {
-      userName: userName,
-      email: email,
-      password: password,
-    });
-console.log(res.data.message);
+    const res = await axios.put(
+      `${BASE_URL}/user/updateUser/${user.user._id}`,
+      {
+        userName: userName,
+        email: email,
+        password: password,
+      }
+    );
+    console.log(res.data.message);
     if (typeof res.data == "object") {
       localStorage.setItem("user", JSON.stringify({ user: res.data }));
       setMessage("Updated Successfully");
-    } else if("Email is already taken") {
+    } else if ("Email is already taken") {
       console.log(res.data);
       setMessage("Sorry, Not updated");
     }
@@ -43,6 +47,7 @@ console.log(res.data.message);
           <Header userName={userName} />
           <div className="userP">
             <img
+            alt="profileImg"
               src="https://media.istockphoto.com/photos/young-charming-pretty-woman-is-smiling-while-smelling-the-aroma-of-picture-id944872822?k=20&m=944872822&s=612x612&w=0&h=wRFVEc_MoKAYce6UtfLpxgF8TH1uy8XJo_baNzlVKoU="
               className="profileImg"
             />
@@ -53,7 +58,16 @@ console.log(res.data.message);
                 method="POST"
                 onSubmit={updateProfile}
               >
-                <h1 className="title">Update Your Account</h1>
+                <div className="flex">
+                <h1 className="space title ">Update Your Account  </h1>
+                <IoIosKeypad
+                          className="icon"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate("/Recipes");
+                          }}
+                        />
+                        </div>
                 <div className="yellowLine"></div>
                 <input
                   type="text"

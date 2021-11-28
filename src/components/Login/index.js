@@ -4,7 +4,7 @@ import axios from "axios";
 import "./style.css";
 
 const Login = () => {
-  const BASE_URL ="https://recipe-note-book.herokuapp.com"
+  const BASE_URL = "https://recipe-note-book.herokuapp.com";
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,8 +17,8 @@ const Login = () => {
   }, []);
 
   const login = async (e) => {
-    e.preventDefault()
-    console.log(email , password);
+    e.preventDefault();
+    console.log(email, password);
     const res = await axios.post(`${BASE_URL}/user/login`, {
       email: email,
       password: password,
@@ -26,10 +26,10 @@ const Login = () => {
     console.log(res);
     if (typeof res.data.user === "object") {
       localStorage.setItem("user", JSON.stringify({ user: res.data.user }));
-  
-    } 
-      console.log(res.data.message);
-      setMessage(res.data.message);
+      navigate("/Recipes")
+    }
+    console.log(res.data.message);
+    setMessage(res.data.message);
     
   };
 
@@ -46,7 +46,7 @@ const Login = () => {
               className="input"
               placeholder="Email"
               required
-              onChange={(e) =>setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <br />
             <input
@@ -59,7 +59,7 @@ const Login = () => {
             />
 
             {message ? <p className="message"> {message}</p> : ""}
-            <input type="submit" value="Go" className="btn"  />
+            <input type="submit" value="Go" className="btn" />
           </form>
           <div>
             <p>

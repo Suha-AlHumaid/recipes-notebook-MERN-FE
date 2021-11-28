@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import SingleRecipe from "../SingleRecipe";
 import { useNavigate } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
+import SingleRecipe from "../SingleRecipe";
 import Unreachable from "../Unreachable";
 import Header from "../Header";
 import "./style.css";
+
 const Recipes = () => {
   const BASE_URL = "https://recipe-note-book.herokuapp.com";
   const navigate = useNavigate();
@@ -25,13 +26,12 @@ const Recipes = () => {
   const getRecipes = async () => {
     const userStorage = localStorage.getItem("user");
     const userData = JSON.parse(userStorage);
-
     if (userData) {
       const id = userData.user._id;
       const res = await axios.get(`${BASE_URL}/yourRecipes/${id}`, {
         username: userData.username,
       });
-      setRecipes(res.data.filter((elem) => elem.isDeleted != true));
+      setRecipes(res.data.filter((elem) => elem.isDeleted !== true));
     }
   };
 

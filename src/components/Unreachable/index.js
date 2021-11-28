@@ -1,18 +1,16 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-import "./style.css"
+import "./style.css";
 const Unreachable = () => {
-    return (
-     
-                    <div className="empty">
-        <h1>Sorry, </h1>
-    <p>
-    You Need to <Link to="/">Login</Link> first, if you dont have an
-        account <Link to="/Signup">Signup</Link> now!
+  return (
+    <div className="empty">
+      <h1>Sorry, </h1>
+      <p>
+        You Need to <Link to="/">Login</Link> first, if you dont have an account{" "}
+        <Link to="/Signup">Signup</Link> now!
       </p>
-     </div>
-    
-    )
-}
+    </div>
+  );
+};
 
-export default Unreachable
+export default Unreachable;

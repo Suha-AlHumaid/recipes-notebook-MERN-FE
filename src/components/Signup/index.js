@@ -1,7 +1,5 @@
-//http://localhost:5000
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-
 import axios from "axios";
 import "./style.css";
 
@@ -21,7 +19,6 @@ const Signup = () => {
 
   const signup = async (e) => {
     e.preventDefault();
-    // setMessage("Faild");
     console.log(userName, email, password);
     try {
       const res = await axios.post(`${BASE_URL}/user/register`, {
@@ -36,7 +33,6 @@ const Signup = () => {
       }
       setMessage(res.data.message);
     } catch (err) {
-      // Handle Error Here
       console.error(err);
     }
   };
@@ -49,6 +45,7 @@ const Signup = () => {
         <div className="form22">
           <div className="imgSingup">
             <img
+            alt="SingupImg"
               id="imgSingup"
               src="https://i.pinimg.com/564x/2c/db/bc/2cdbbc8df8c84e5011079dfad28af397.jpg"
             />

@@ -1,32 +1,33 @@
-.addRecipe{
-    width: 100%;
-    min-height: 80vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 80px;
-}
-.addForm{
-    width: 50%;
-    margin-left: 30px;
-}
-.addImg{
-    width: 50%;
-    object-fit: cover;
-    right: 0;
-    min-height: 100vh;
+.addRecipe {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 80px;
 
 }
-.formAdd{
-    width: 90%;
+.addForm {
+  width: 50%;
+  margin-left: 30px;
+}
+.addImg {
+  width: 50%;
+  object-fit: cover;
+  right: 0;
+  min-height: 100vh;
+  background-image: url("https://aqaarplus.com/assets/uploads/default.png");
+
+}
+.formAdd {
+  width: 90%;
 }
 
 .sheet {
-    background-color: #fff;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='30' width='100%'><circle r='10' cx='20' cy='13' fill='%23888' /><line x1='80' x2='80' y1='0' y2='30' stroke='%23f00' /><line x1='0' x2='100%'  y1='28' y2='28' stroke='%2300f'/></svg>");
-    background-repeat: repeat-y;
-
-  }
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' height='30' width='100%'><circle r='10' cx='20' cy='13' fill='%23888' /><line x1='80' x2='80' y1='0' y2='30' stroke='%23f00' /><line x1='0' x2='100%'  y1='28' y2='28' stroke='%2300f'/></svg>");
+  background-repeat: repeat-y;
+}
 /*   
   .textarea {
     font-size: 20px;
@@ -42,37 +43,46 @@
     border: none;
     border-color: white;
   } */
-  /* $border: #ced4da; */
+/* $border: #ced4da; */
 
 textarea {
-	resize: none !important;
-	overflow: auto !important;
-	outline: none;
-	box-shadow: none !important;
-	border-color: #ced4da !important;
+  resize: none !important;
+  overflow: auto !important;
+  outline: none;
+  box-shadow: none !important;
+  border-color: #ced4da !important;
 }
 #text {
-	resize: none !important;
-	overflow: auto !important;
-	outline: none;
-	box-shadow: none !important;
-	border-color: #ced4da !important;
-    /* border: none; */
+  resize: none !important;
+  overflow: auto !important;
+  outline: none;
+  box-shadow: none !important;
+  border-color: #ced4da !important;
+  /* border: none; */
 }
-  .notes {
-    width: 99%;
-    min-height: 2em;
-    line-height: 31px;
-    background-image: -webkit-linear-gradient(left, white 0, transparent 0), -webkit-linear-gradient(right, white 0, transparent 0), -webkit-linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
-    background-repeat: repeat-y;
-    background-size: 100% 100%, 100% 100%, 100% 31px;
-    background-attachment: local;
-  }
+.notes {
+  width: 99%;
+  min-height: 2em;
+  line-height: 31px;
+  background-image: -webkit-linear-gradient(left, white 0, transparent 0),
+    -webkit-linear-gradient(right, white 0, transparent 0),
+    -webkit-linear-gradient(white 30px, #ccc 30px, #ccc 31px, white 31px);
+  background-repeat: repeat-y;
+  background-size: 100% 100%, 100% 100%, 100% 31px;
+  background-attachment: local;
+}
 
-  .notes:hover {
-		resize: none !important;
-		overflow: auto !important;
-		outline: none;
-		box-shadow: none !important;
-		border-color: #ced4da !important;
-	}
+.notes:hover {
+  resize: none !important;
+  overflow: auto !important;
+  outline: none;
+  box-shadow: none !important;
+  border-color: #ced4da !important;
+}
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
+}

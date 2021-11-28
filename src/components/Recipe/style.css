@@ -1,73 +1,71 @@
 .recipeX {
   background-color: #f1c50e;
   width: 100%;
-  /* height: 100vh; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  /* margin-top: 90px; */
 }
 .recipeP {
   position: relative;
   width: 100%;
-  /* min-height: 90vh; */
   display: flex;
   justify-content: flex-end;
   margin-top: 80px;
-  /* align-items: center; */
   background-color: #f1c50e;
 }
 .recipeXX {
   min-height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin: 0;
   background-color: white;
   width: 55%;
-  /* height: 100vh; */
 }
 .recipeImgX {
   width: 40%;
   height: 90vh;
-  /* min-height: 100vh; */
   object-fit: cover;
 }
 
-.recipeNote{
+.recipeNote {
   width: 90%;
   min-height: 90vh;
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- align-items: flex-start;
- /* margin-left: 5rem;
- margin-right: 5rem; */
- position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
 }
-#title{
+#title {
   text-align: left;
 }
-.deleRecipe{
-  /* background-color: black; */
+.deleRecipe {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items:center;
+  align-items: center;
   position: relative;
   bottom: 0;
 }
-.right{
-display: flex;
-justify-content: flex-end;
-width: 100%;
-}
-#note{
+.right {
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
 }
-.title{
-display: flex;
-justify-content: space-between;
-align-items: center;
+#note {
+  width: 100%;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
 }

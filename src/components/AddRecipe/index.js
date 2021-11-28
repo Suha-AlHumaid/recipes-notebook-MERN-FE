@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Unreachable from "../Unreachable";
 import Header from "../Header";
+import { storage } from "../firebase";
 import "./style.css";
 
 const AddRecipe = () => {
@@ -11,6 +12,11 @@ const AddRecipe = () => {
   const [image, setImage] = useState(
     "https://aqaarplus.com/assets/uploads/default.png"
   );
+  const [image1, setImage1] = useState(null);
+  const [url, setUrl] = useState(
+    "https://aqaarplus.com/assets/uploads/default.png"
+  );
+  const [progress, setProgress] = useState(0);
   const [ingredients, setIngredients] = useState("");
   const [directions, setDirections] = useState("");
   const [extraNote, setExtraNote] = useState("");
@@ -27,26 +33,58 @@ const AddRecipe = () => {
     const publisher = user.user._id;
     const res = await axios.post(`${BASE_URL}/recipe`, {
       title: title,
-      image: image,
+      image: url,
       ingredients: ingredients,
       directions: directions,
       extraNote: extraNote,
       publisher: publisher,
-    }); 
+    });
 
-    setMessage(res.data.message);
-    if (res.status == 200){
+    if (res.data.message === "success") {
+      setMessage(res.data.message);
       navigate("/Recipes");
-     
     } else {
       setMessage("sorry, something wrong");
     }
-
   };
+
+  const handleChange = (e) => {
+    if (e.target.files[0]) {
+      setImage1(e.target.files[0]);
+    }
+  };
+
+  const handleUpload = () => {
+    const uploadTask = storage.ref(`images/${image1.name}`).put(image1);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image1.name)
+          .getDownloadURL()
+          .then((url) => {
+            setUrl(url);
+          });
+      }
+    );
+  };
+
+  console.log("image: ", image1);
 
   return user ? (
     <div>
-      <Header/>
+      <Header />
+
       <div className="addRecipe">
         <div className="addForm">
           <form
@@ -97,7 +135,7 @@ const AddRecipe = () => {
               onChange={(e) => setExtraNote(e.target.value)}
             />
             <br />
-            <input
+            {/* <input
               type="text"
               name="image"
               className="input"
@@ -107,22 +145,29 @@ const AddRecipe = () => {
                   ? setImage(e.target.value)
                   : setImage("https://aqaarplus.com/assets/uploads/default.png")
               }
-            />
+            /> */}
+
+            <div className="upload">
+              <input type="file" onChange={handleChange} />
+              <div className="prograss">
+                <button className="btn" onClick={handleUpload}>
+                  Upload
+                </button>
+                <progress className="black" value={progress} max="100" />
+              </div>
+            </div>
             {message ? <p className="message"> {message}</p> : ""}
-  
+
             <div className="deleRecipe">
-            <p>
+              <p>
                 <Link to="/Recipes"> Cancel </Link>
               </p>
-            <input type="submit" value="Save" className="btn" />{" "}
-
+              <input type="submit" value="Save" className="btn" />{" "}
             </div>
           </form>
         </div>
-        <img
-          className="addImg"
-          src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/5258432c70db515c9f2536ce/pexels-photo-2351274.jpeg"
-        />
+        <img src="https://i.pinimg.com/564x/84/7c/c4/847cc46a06efd12c34758be6978d16fc.jpg" className="addImg"/>
+       
       </div>
     </div>
   ) : (

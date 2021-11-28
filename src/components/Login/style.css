@@ -44,21 +44,26 @@
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
-.btn:hover{
+.btn:hover {
   color: #f3f4f6;
   border: 2px solid #f1c50e;
   background-color: #f1c50e;
-
 }
 form {
-    display: flex;
-    align-content: space-around;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
+  display: flex;
+  align-content: space-around;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.message{
-    font-size: 1.2rem;
+.message {
+  font-size: 1.2rem;
+}
+@media (max-width: 650px) {
+}
+
+@media (max-width: 999px) {
+}
+@media (min-width: 1000px) {
 }
