@@ -63,7 +63,6 @@ const EditRecipe = () => {
   const [progress, setProgress] = useState(0);
   const [image1, setImage1] = useState(null);
   const [url, setUrl] = useState("https://aqaarplus.com/assets/uploads/default.png");
-  setUrl("https://aqaarplus.com/assets/uploads/default.png")
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImage1(e.target.files[0]);
@@ -183,7 +182,7 @@ const EditRecipe = () => {
               <input type="file" onChange={handleChange} />
              <div className="prograss">
               <button className="btn" onClick={handleUpload}>Upload</button>
-              <progress className="black" value={progress} max="100" />
+              <progress  value={progress} max="100" />
              </div>
             </div>
                 {message ? <p className="message"> {message}</p> : ""}
