@@ -9,7 +9,7 @@ import Header from "../Header";
 import "./style.css";
 
 const EditRecipe = () => {
-  const BASE_URL = "https://recipe-note-book.herokuapp.com";
+
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [ingredients, setIngredients] = useState("");
@@ -35,7 +35,7 @@ const EditRecipe = () => {
  
 
   const getRecipe = async () => {
-    const res = await axios.get(`${BASE_URL}/recipe/${id}`);
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/recipe/${id}`);
     setRecipe(res.data);
   };
 
@@ -43,7 +43,7 @@ const EditRecipe = () => {
     setMessage("");
  
     const publisher = user.user._id;
-    const res = await axios.put(`${BASE_URL}/recipe/${id}`, {
+    const res = await axios.put(`${process.env.REACT_APP_BASE_URL}/recipe/${id}`, {
       title: title,
       image: url,
       ingredients: ingredients,

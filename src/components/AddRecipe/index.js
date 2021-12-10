@@ -6,8 +6,8 @@ import Header from "../Header";
 import { storage } from "../firebase";
 import "./style.css";
 
-const AddRecipe = () => {
-  const BASE_URL = "https://recipe-note-book.herokuapp.com";
+const AddRecipe = ({getRecipes}) => {
+
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(
     "https://aqaarplus.com/assets/uploads/default.png"
@@ -31,7 +31,7 @@ const AddRecipe = () => {
 
   const addRecipe = async () => {
     const publisher = user.user._id;
-    const res = await axios.post(`${BASE_URL}/recipe`, {
+    const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/recipe`, {
       title: title,
       image: url,
       ingredients: ingredients,
@@ -41,6 +41,7 @@ const AddRecipe = () => {
     });
 
     if (res.data.message === "success") {
+      getRecipes();
       setMessage(res.data.message);
       navigate("/Recipes");
     } else {

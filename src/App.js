@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
@@ -11,9 +11,25 @@ import AddRecipe from "./components/AddRecipe";
 import EditRecipe from "./components/EditRecipe";
 import Recipe from "./components/Recipe";
 import "./style.css";
-
+import axios from "axios";
 const App = () => {
-  const BASE_URL = "https://recipe-note-book.herokuapp.com";
+  const [recipes, setRecipes] = useState([]);
+  useEffect(() => {
+    getRecipes();
+  }, []);
+
+  const getRecipes = async () => {
+    const userStorage = localStorage.getItem("user");
+    const userData = JSON.parse(userStorage);
+    if (userData) {
+      const id = userData.user._id;
+      const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/yourRecipes/${id}`, {
+        username: userData.username,
+      });
+      setRecipes(res.data.filter((elem) => elem.isDeleted !== true));
+    }
+  };
+
   return (
     <>
       <Routes>
@@ -21,10 +37,10 @@ const App = () => {
         <Route exact path="/Login" element={<Login />} />
         <Route exact path="/Signup" element={<Signup />} />
         <Route exact path="/SingOut" element={<SingOut />} />
-        <Route exact path="/Recipes" element={<Recipes />} />
+        <Route exact path="/Recipes" element={<Recipes recipes={recipes} getRecipes={getRecipes}/>} />
         <Route exact path="/Recipe/:id" element={<Recipe />} />
         <Route exact path="/Profile" element={<Profile />} />
-        <Route exact path="/AddRecipe" element={<AddRecipe />} />
+        <Route exact path="/AddRecipe" element={<AddRecipe getRecipes={getRecipes} />} />
         <Route exact path="/EditRecipe/:id" element={<EditRecipe />} />
       </Routes>
       <Footer />

@@ -7,7 +7,7 @@ import axios from "axios";
 import Header from "../Header";
 
 const Profile = () => {
-  const BASE_URL = "https://recipe-note-book.herokuapp.com";
+
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +24,7 @@ const Profile = () => {
     e.preventDefault();
 
     const res = await axios.put(
-      `${BASE_URL}/user/updateUser/${user.user._id}`,
+      `${process.env.REACT_APP_BASE_URL}/user/updateUser/${user.user._id}`,
       {
         userName: userName,
         email: email,

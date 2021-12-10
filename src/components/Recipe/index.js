@@ -8,7 +8,7 @@ import Header from "../Header";
 import "./style.css";
 
 const Recipe = () => {
-  const BASE_URL = "https://recipe-note-book.herokuapp.com";
+
   const { id } = useParams();
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
@@ -26,7 +26,7 @@ const Recipe = () => {
   }, []);
 
   const getRecipe = async () => {
-    const res = await axios.get(`${BASE_URL}/recipe/${id}`);
+    const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/recipe/${id}`);
     setRecipe(res.data);
   };
 
@@ -35,9 +35,11 @@ const Recipe = () => {
 
     e.preventDefault();
     const res = await axios.delete(
-      `${BASE_URL}/recipe/${recipe._id}`
+      `${process.env.REACT_APP_BASE_URL}/recipe/${recipe._id}`
     );
+
     if (typeof res.data === "object") {
+      console.log(res.data);
       setMessage("Delete");
       navigate("/Recipes");
     } else {

@@ -4,7 +4,7 @@ import axios from "axios";
 import "./style.css";
 
 const Login = () => {
-  const BASE_URL = "https://recipe-note-book.herokuapp.com";
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ const Login = () => {
   const login = async (e) => {
     e.preventDefault();
     console.log(email, password);
-    const res = await axios.post(`${BASE_URL}/user/login`, {
+    const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/login`, {
       email: email,
       password: password,
     });
