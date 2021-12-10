@@ -24,13 +24,12 @@ const EditRecipe = () => {
   useEffect(() => {
     const userStorage = localStorage.getItem("user");
     setUser(JSON.parse(userStorage));
-     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
 
     getRecipe();
-     // eslint-disable-next-line
+  
   }, []);
  
 
@@ -63,8 +62,10 @@ const EditRecipe = () => {
   const [progress, setProgress] = useState(0);
   const [image1, setImage1] = useState(null);
   const [url, setUrl] = useState("https://aqaarplus.com/assets/uploads/default.png");
-  setUrl("https://aqaarplus.com/assets/uploads/default.png")
+
+
   const handleChange = (e) => {
+    e.preventDefault();
     if (e.target.files[0]) {
       setImage1(e.target.files[0]);
 
@@ -97,7 +98,6 @@ const EditRecipe = () => {
     );
   };
 
-  console.log("image: ", image1);
 
   return !user ? (
     <Unreachable />
@@ -180,9 +180,11 @@ const EditRecipe = () => {
                   onChange={(e) => setExtraNote(e.target.value)}
                 />
                             <div className="upload">
-              <input type="file" onChange={handleChange} />
+              <input type="file" onChange={
+                 handleChange} />
              <div className="prograss">
-              <button className="btn" onClick={handleUpload}>Upload</button>
+              <button className="btn" onClick={
+                handleUpload}>Upload</button>
               <progress className="black" value={progress} max="100" />
              </div>
             </div>
@@ -201,9 +203,10 @@ const EditRecipe = () => {
             <img alt="add img" className="addImg" src={recipe.image} />
           </div>
         </div>
-      )}
+      )
+      }
     </div>
-  );
+  )
 };
 
 export default EditRecipe;
